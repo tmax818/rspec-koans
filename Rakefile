@@ -1,14 +1,11 @@
+require 'rake'
+require 'rspec/core/rake_task'
 
+RSpec::Core::RakeTask.new(:spec) 
 
+task :default  => [:spec]
 
-task :default => :test
-
-desc "some description.."
-task :test do
-  sh "rspec"
+task :html do
+  exec "rspec --format html --out index.html"
 end
 
-desc "some other description"
-task :test_html do
-  sh "rspec --format html --out index.html"
-end
